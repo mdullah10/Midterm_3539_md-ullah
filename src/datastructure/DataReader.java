@@ -1,6 +1,32 @@
 package datastructure;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class DataReader {
+
+    public static String readfile(String filepath) {
+        String text;
+        String a = null;
+
+        try {
+            FileReader fileReader = new FileReader(filepath);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+            while ((text = bufferedReader.readLine()) != null) {
+                a = text;
+            }
+            fileReader.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(a);
+        return a;
+    }
+
 
     public static void main(String[] args) {
         /*
@@ -17,10 +43,11 @@ public class DataReader {
          * Demonstrate how to use Stack that includes push,peek,search,pop elements.
          * Use For Each loop/while loop/Iterator to retrieve data.
          */
-
-        String textFile = System.getProperty("user.dir") + "/src/data/self-driving-car.txt";
-
-
+                    readfile("src\\data\\self-driving-car.txt");
+        String textFile = System.getProperty("user.dir") + "/src/data/self-driving-car.txt.txt";
     }
 
 }
+
+
+
